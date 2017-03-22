@@ -1,36 +1,23 @@
-# {{ name }}
-
-> {{ description }}
-
-## Build Setup
+### web端
 
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-{{#unit}}
-
-# run unit tests
-npm run unit
-{{/unit}}
-{{#e2e}}
-
-# run e2e tests
-npm run e2e
-{{/e2e}}
-{{#if_or unit e2e}}
-
-# run all tests
-npm test
-{{/if_or}}
+$ cd web
+$ npm install
+$ npm run dev
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+如果你的设备上8801端口已经被占用，请到 `web/config/index.js` 修改 port 值，然后 `npm run dev`
+
+## What's Included
+
+- `npm run dev`: 启动前端服务 并实时更新到浏览器上
+
+- `npm run build`: 编译文件到／dist目录下
+
+- `npm run copy` : 复制／dist目录下文件到服务端／assets目录下
+
+- `npm run bdc` : 编译并复制
+
+- `npm run unit`: Unit tests run in PhantomJS with [Karma](http://karma-runner.github.io/0.13/index.html) + [Mocha](http://mochajs.org/) + [karma-webpack](https://github.com/webpack/karma-webpack).
+
+- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).

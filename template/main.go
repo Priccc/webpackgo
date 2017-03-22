@@ -23,7 +23,11 @@ func main() {
 	router := gin.Default()
 	router.Static("/static", "assets/static")
 
-	router.LoadHTMLGlob("assets/index.html")
+	router.LoadHTMLGlob("assets/*.html")
+
+	router.GET("/", func (c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
+	})
 
 	router.Run(":" + *listeningPort)
 }
