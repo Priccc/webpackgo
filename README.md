@@ -12,9 +12,9 @@ $ cd my-project
 
 根据自己的需求更改目录及文件
 
-如果你的设备上8800端口已经被占用，请到 `main.go` 修改 port 值
+如果你的设备上8800端口已经被占用，请到 `conf/config.json` 修改 port 值
 
-或将配置信息文件 config 移步到 `conf/config.json` 中
+(初始化没有这个文件，需要自己新建一个，配置信息请参照 `conf/config_default.json` )
 
 启动服务：
 
