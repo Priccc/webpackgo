@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http"
+	// "net/http"
 
 	"github.com/gin-gonic/gin"
-
+	"{{ name }}/controllers"
 	"flag"
 )
 
@@ -23,13 +23,7 @@ func main() {
 	}
 
 	router := gin.Default()
-	router.Static("/static", "assets/static")
-
-	router.LoadHTMLGlob("assets/*.html")
-
-	router.GET("/", func (c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
-	})
+	rout.InitRouters(router)
 
 	router.Run(":" + *listeningPort)
 }
