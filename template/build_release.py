@@ -6,9 +6,9 @@ if os.path.exists("release") == False:
 	os.mkdir("release")
 
 # code = os.system("go build -o ./release/chatserver_dawin main.go")
-code = os.system("GOOS=linux GOARCH=amd64 go build -o ./release/pro_linux64 main.go")
+code = os.system("GOOS=linux GOARCH=amd64 go build -o ./release/"+{{ name }}+"_linux64 main.go")
 if code > 0:
-	raise ValueError("build error")
+	raise ValueError("build "+{{ name }}+" error")
 
 dirSrc = "./"
 dirDest = "./release"
@@ -36,8 +36,8 @@ def hasHidePath(path):
 	return False
 
 # set files and paths that should be exclued from release files
-ignoredDirs = ["controller", "tests", "release", "test"]
-ignoredFiles = ["build_release.py", "main.go", "conf/config.json"]
+ignoredDirs = ["controller", "router", "tests", "release", "test", "web"]
+ignoredFiles = ["build_release.py", "main.go", "conf/config.json", "README.md"]
 
 
 ignoredPaths = []
@@ -123,7 +123,7 @@ def buildRelease():
 					except Exception as e:
 						raise e
 
-	print("build OK")	
+	print("build OK")
 	print("----------------------------------------------------------------")
 
 buildRelease()
