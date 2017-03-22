@@ -6,9 +6,9 @@ if os.path.exists("release") == False:
 	os.mkdir("release")
 
 # code = os.system("go build -o ./release/chatserver_dawin main.go")
-code = os.system("GOOS=linux GOARCH=amd64 go build -o ./release/"+{{ name }}+"_linux64 main.go")
+code = os.system("GOOS=linux GOARCH=amd64 go build -o ./release/{{ name }}_linux64 main.go")
 if code > 0:
-	raise ValueError("build "+{{ name }}+" error")
+	raise ValueError("build {{ name }} error")
 
 dirSrc = "./"
 dirDest = "./release"
